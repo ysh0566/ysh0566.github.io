@@ -43,7 +43,7 @@
     
     <title>
         
-            requests在windows环境下无法使用socks代理的解决方法 | 
+            回顾2017年工作遇到的问题和解决思路 | 
         
         ysh0566&#39;s blog
     </title>
@@ -54,7 +54,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",python">
+    <meta name="keywords" content=",python,填坑">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="ysh0566&#39;s blog">
-    <meta name="msapplication-starturl" content="https://ysh0566.github.io/post/b17492b2.html">
+    <meta name="msapplication-starturl" content="https://ysh0566.github.io/post/af197a9b.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="ysh0566&#39;s blog">
@@ -230,16 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://ysh0566.github.io/post/b17492b2.html">
+    <meta property="og:url" content="https://ysh0566.github.io/post/af197a9b.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="requests在windows环境下无法使用socks代理的解决方法 | ysh0566&#39;s blog">
+    <meta property="og:title" content="回顾2017年工作遇到的问题和解决思路 | ysh0566&#39;s blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="python"> 
+    <meta property="og:article:tag" content="python"> <meta property="og:article:tag" content="填坑"> 
 
     
-        <meta property="article:published_time" content="Mon Feb 05 2018 00:40:07 GMT+0800">
-        <meta property="article:modified_time" content="Tue Feb 06 2018 00:18:34 GMT+0800">
+        <meta property="article:published_time" content="Thu Feb 08 2018 13:38:10 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 24 2018 23:37:03 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -247,7 +247,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ysh0566.github.io/post/b17492b2.html" />
+        <link rel="canonical" href="https://ysh0566.github.io/post/af197a9b.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -259,10 +259,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://ysh0566.github.io/post/b17492b2.html",
-    "headline": "requests在windows环境下无法使用socks代理的解决方法",
-    "datePublished": "Mon Feb 05 2018 00:40:07 GMT+0800",
-    "dateModified": "Tue Feb 06 2018 00:18:34 GMT+0800",
+    "mainEntityOfPage": "https://ysh0566.github.io/post/af197a9b.html",
+    "headline": "回顾2017年工作遇到的问题和解决思路",
+    "datePublished": "Thu Feb 08 2018 13:38:10 GMT+0800",
+    "dateModified": "Sat Feb 24 2018 23:37:03 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ysh0566",
@@ -280,7 +280,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",python",
+    "keywords": ",python,填坑",
     "description": "",
 }
 </script>
@@ -355,7 +355,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#requests-2-12-4-在Windows下使用socks5代理时，出现报错："><span class="post-toc-number">1.</span> <span class="post-toc-text">requests (2.12.4) 在Windows下使用socks5代理时，出现报错：</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、内网穿透"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、内网穿透</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、-各种奇葩系统的数据爬取"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、 各种奇葩系统的数据爬取</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最奇葩——远程桌面"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">最奇葩——远程桌面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#还可以——部分参数加密的系统"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">还可以——部分参数加密的系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#看不懂——一些奇奇怪怪的情况"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">看不懂——一些奇奇怪怪的情况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#很有趣——奇怪的数据格式"><span class="post-toc-number">2.0.4.</span> <span class="post-toc-text">很有趣——奇怪的数据格式</span></a></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -387,7 +387,7 @@
         
     
             <p class="article-headline-p">
-                requests在windows环境下无法使用socks代理的解决方法
+                回顾2017年工作遇到的问题和解决思路
             </p>
         </div>
 
@@ -406,7 +406,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>ysh0566</strong>
-        <span>2月 05, 2018</span>
+        <span>2月 08, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -430,7 +430,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/python/">python</a>
+        <a class="post_tag-link" href="/tags/python/">python</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/填坑/">填坑</a>
     </ul>
     
 
@@ -447,7 +447,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=requests在windows环境下无法使用socks代理的解决方法&url=https://ysh0566.github.io/post/b17492b2.html&pic=https://ysh0566.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=回顾2017年工作遇到的问题和解决思路&url=https://ysh0566.github.io/post/af197a9b.html&pic=https://ysh0566.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -456,7 +456,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=requests在windows环境下无法使用socks代理的解决方法&url=https://ysh0566.github.io/post/b17492b2.html&via=ysh0566" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=回顾2017年工作遇到的问题和解决思路&url=https://ysh0566.github.io/post/af197a9b.html&via=ysh0566" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -465,7 +465,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ysh0566.github.io/post/b17492b2.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ysh0566.github.io/post/af197a9b.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -474,7 +474,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://ysh0566.github.io/post/b17492b2.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ysh0566.github.io/post/af197a9b.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -499,9 +499,22 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="requests-2-12-4-在Windows下使用socks5代理时，出现报错："><a href="#requests-2-12-4-在Windows下使用socks5代理时，出现报错：" class="headerlink" title="requests (2.12.4) 在Windows下使用socks5代理时，出现报错："></a>requests (2.12.4) 在Windows下使用socks5代理时，出现报错：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File &quot;D:\Python27\lib\site-packages\requests-2.12.4-py2.7.egg\requests\adapters.py&quot;, line 43, in SOCKSProxyManager</span><br><span class="line">raise InvalidSchema(&quot;Missing dependencies for SOCKS support.&quot;)</span><br><span class="line">requests.exceptions.InvalidSchema: Missing dependencies for SOCKS support.</span><br></pre></td></tr></table></figure>
-<p>解决的办法是安装 win_inet_pton</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install win_inet_pton</span><br></pre></td></tr></table></figure>
+        <h1 id="1、内网穿透"><a href="#1、内网穿透" class="headerlink" title="1、内网穿透"></a>1、内网穿透</h1><p>　　工作中需要爬取一些内网系统的数据，一般是在内网的某台机器安装代理并暴露到公网，只有极少部分的系统采用的是设置路由器直接把服务器端口暴露到公网。开始大部分系统使用的是的是pp透这种成熟的商业软件，但是极其不稳定，经常出现客户端后台进程挂掉的情况，需要重新启动客户机，并且pp透只支持https协议代理，没有socks5协议代理的兼容性好（比如需要远程内网的一台机器）。</p>
+<p>　　最后自己搭建ngrok服务，在内网某台机器上运行ngrok客户端程序，暴露某个端口到公网，同时该机器再运行一个socks5代理软件监听该端口，最后数据的爬取都经过该代理，从而能够爬取内网服务器的数据。frp的socks5代理功能因为不能设置代理验证，所以没有使用frp。客户端的机器还有一个守护进程，保证ngrok进程和socks5代理进程不会异常退出。</p>
+<h1 id="2、-各种奇葩系统的数据爬取"><a href="#2、-各种奇葩系统的数据爬取" class="headerlink" title="2、 各种奇葩系统的数据爬取"></a>2、 各种奇葩系统的数据爬取</h1><ul>
+<li><h3 id="最奇葩——远程桌面"><a href="#最奇葩——远程桌面" class="headerlink" title="最奇葩——远程桌面"></a>最奇葩——远程桌面</h3><p>　　这种系统的使用方法是：用户使用rdp桌面程序远程一台服务器进行操作，该服务器仅仅提供一个应用程序界面，操作系统层面的部分无法进入。</p>
+<p>　　开始加了几个爬虫群询问有没有人做过类似的，然而并没有人做过。。于是我选择了最粗暴的方式，单纯控制鼠标去点击操作，选择并复制出数据保存，主要用到<a href="http://pyautogui.readthedocs.io/en/latest/" target="_blank" rel="noopener">pyautogui</a>和pywin32，编写难度不大，但是容易出错，需要考虑到各种可能出现的情况，并且由于远程桌面不能响应编写的程序发出的键盘事件（原因未知，没google出来，具体表现在：选中远程桌面中的一段文字，手动ctrl+c，剪切板有文字，程序执行ctrl+c,剪切板为空），所有操作仅仅只能用鼠标操作，以及使用截图来确认鼠标下一步的位置，所以速度慢且容易出错。</p>
+</li>
+<li><h3 id="还可以——部分参数加密的系统"><a href="#还可以——部分参数加密的系统" class="headerlink" title="还可以——部分参数加密的系统"></a>还可以——部分参数加密的系统</h3><p>　　大多数爬虫是爬取网站的数据，很多网站也喜欢加密参数并且对js代码进行混淆 ，但是毕竟是有js代码的，勤快点运气好点能读懂代码，懒点直接调用js的加密函数，再懒点用<a href="https://www.seleniumhq.org/" target="_blank" rel="noopener">selenium</a>操作<a href="http://phantomjs.org/" target="_blank" rel="noopener">phantomjs</a>浏览器来爬取数据。我爬取的数据有很多是windows应用程序的数据，加密了参数我就只能一脸懵逼了，谁叫我不会反编译呢，虽然能看点汇编（学过嵌入式）。。。。。</p>
+<p>　　最后的解决方案是：使用中间人截取数据分析，应用程序的操作则使用win32api向句柄发送消息或者程序控制键盘鼠标进行操作。中间人使用<a href="https://mitmproxy.org/" target="_blank" rel="noopener">mitmproxy</a>，编写脚本截取需要的数据，注意如果使用的是https协议，机器需要安装mitmproxy的证书。</p>
+</li>
+<li><h3 id="看不懂——一些奇奇怪怪的情况"><a href="#看不懂——一些奇奇怪怪的情况" class="headerlink" title="看不懂——一些奇奇怪怪的情况"></a>看不懂——一些奇奇怪怪的情况</h3><p>　　假设，某个页面列表中有两个链接，分别为链接1和链接2，链接1点进去后都会有一个显示详情的链接1d，链接2点进去后都会有一个显示详情的链接2d，厉害的地方来了，1d和2d两个链接是一样的，点进去显示的内容却是不一样的。最后还是想通了其中的逻辑，服务器记录了上次访问的地址，当点击访问详情的时候根据上次访问的链接来返回数据。写代码的时候也没什么大问题，多请求几个cookies，一个线程拿一个cookies去访问，如果多个线程用同一个cookies，拿到的数据就全乱套了。不太懂这种设计的原因，希望有人能为我解惑，感激不尽。</p>
+<p>​                <img src="b17492b2/juewang.jpeg" alt="绝望"> </p>
+<p>　　cookies绑定客户端ip，多台任务服务器使用同一个cookies请求数据（因为系统用了极验的验证码，获取cookies的成本比较高），测试的时候没有问题，上服务器一直报错，又是一脸懵逼= =，大约花了两小时最后发现竟然绑定了ip，最终的解决方法是其中一台服务器安装代理，其他所有服务器都走这个代理请求数据。</p>
+</li>
+<li><h3 id="很有趣——奇怪的数据格式"><a href="#很有趣——奇怪的数据格式" class="headerlink" title="很有趣——奇怪的数据格式"></a>很有趣——奇怪的数据格式</h3><p>　　最常见的数据格式xml，html，json，这些自然都不必说，python解析起来都非常方便，但是有些软件基于.net的话，那其中数据的内容就不一定是这些了，碰到的比较头疼的数据格式是msbin，当时学python还没两天就被安排解析这种格式。那时写这种程序的感觉就像是做小学题的那种找规律题，接触多了就懂套路了，比如一段数据的前几个字节是表示这段数据的长度；一段数据其中有个表示同步位的字节会根据顺序逐渐递增。最锻炼我想象力的是，在一个http数据包中存在不同的编码情况，根据数据段的第一个字节的内容来确定接下来的数据是小端编码还是大端编码。orz</p>
+</li>
+</ul>
 
         
     
@@ -548,19 +561,19 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/post/af197a9b.html" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/post/b17492b2.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
